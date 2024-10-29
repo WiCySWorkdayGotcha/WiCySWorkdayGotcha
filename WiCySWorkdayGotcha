@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Counter</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Number of visitors: <span id="counter">Loading...</span></p>
+
+    <script>
+        async function updateCounter() {
+            const response = await fetch('https://api.countapi.xyz/hit/WiCySWorkdayGotcha/visits');
+            const data = await response.json();
+            document.getElementById('counter').innerText = data.value;
+        }
+        updateCounter();
+    </script>
+</body>
+</html>
